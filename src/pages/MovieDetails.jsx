@@ -2,10 +2,14 @@ import { Box } from 'components/Common/Box';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
   const [film, setFilm] = useState(null);
+  const navigate = useNavigate();
+
   useEffect(() => {
     axios
       .get(
@@ -14,14 +18,31 @@ export const MovieDetails = () => {
       .then(res => setFilm(res.data));
   }, [movieId]);
   return (
-    <Box pd="16" dp="flex" gap="16">
-      <img href={film?.poster_path} alt="poster" />
-      <Box>
-        <p>title</p>
-        <b>{film?.title}</b>
-        <p>overview</p>
-        <b>{film?.overview}</b>
+    <>
+      <button type="button" onClick={() => navigate('/')}>
+        Go home
+      </button>
+      <Box pd="16" dp="flex" gap="16">
+        <img
+          src={`https://image.tmdb.org/t/p/original${film?.poster_path}`}
+          alt="poster"
+          width="240"
+        />
+        <Box>
+          <p>title</p>
+          <b>{film?.title}</b>
+          <p>overview</p>
+          <b>{film?.overview}</b>
+          <p>rating</p>
+          <b>{film?.vote_average}</b>
+        </Box>
       </Box>
-    </Box>
+      <p>Additional information</p>
+      <Box dp="flex" gap="16" color="lightgrey">
+        <Link to="cast">Cast</Link>
+        <Link to="reviews">Reviews</Link>
+      </Box>
+      <Outlet />
+    </>
   );
 };
