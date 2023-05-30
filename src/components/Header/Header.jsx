@@ -1,10 +1,10 @@
 import { Box } from 'components/Common/Box';
-import { ButtonNav } from 'components/Button/Button';
+import { Nav } from 'components/Nav/Nav';
+
 export const Header = props => {
   return (
-    <Box pd={16} color={props => props.theme.mainColor} gap={24} dp="flex">
-      <ButtonNav>Home</ButtonNav>
-      <ButtonNav>Movies</ButtonNav>
+    <Box pd={16} color="#757575" gap={24} dp="flex">
+      <Nav />
     </Box>
   );
 };
