@@ -1,7 +1,7 @@
 import { theme } from './Common/Theme';
 import { ThemeProvider } from 'styled-components';
 import { Trending } from './Trending/Trending';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from 'pages/Layout';
 import { Movies } from 'pages/Movies';
 import { MovieDetails } from 'pages/MovieDetails';
@@ -22,7 +22,7 @@ export const App = () => {
               </Route>
             </Route>
           </Route>
-          <Route path="*" element={<Layout />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </ThemeProvider>
     </div>
