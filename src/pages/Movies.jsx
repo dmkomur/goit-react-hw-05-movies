@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 
-export const Movies = () => {
+const Movies = () => {
   const [movies, setMovies] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('q');
@@ -53,3 +53,4 @@ export const Movies = () => {
     </Box>
   );
 };
+export default Movies;

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const [film, setFilm] = useState(null);
   const navigate = useNavigate();
@@ -48,3 +48,4 @@ export const MovieDetails = () => {
     </>
   );
 };
+export default MovieDetails;
