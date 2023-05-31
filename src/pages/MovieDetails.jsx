@@ -4,12 +4,14 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Outlet, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
   const [film, setFilm] = useState(null);
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const backLink = location.state?.from ?? '/';
   useEffect(() => {
     axios
       .get(
@@ -19,7 +21,7 @@ export const MovieDetails = () => {
   }, [movieId]);
   return (
     <>
-      <button type="button" onClick={() => navigate('/')}>
+      <button type="button" onClick={() => navigate(backLink)}>
         Go home
       </button>
       <Box pd="16" dp="flex" gap="16">

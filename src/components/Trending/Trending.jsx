@@ -2,9 +2,11 @@ import { StyledLi } from './Trending.styled';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 export const Trending = () => {
   const [movies, setMovies] = useState();
+  const location = useLocation();
   useEffect(() => {
     axios
       .get(
@@ -23,7 +25,12 @@ export const Trending = () => {
         {movies &&
           movies.map(el => (
             <StyledLi key={el.id}>
-              <NavLink to={`movies/${el.id.toString()}`}>{el.title}</NavLink>
+              <NavLink
+                to={`movies/${el.id.toString()}`}
+                state={{ from: location }}
+              >
+                {el.title}
+              </NavLink>
             </StyledLi>
           ))}
       </ul>
