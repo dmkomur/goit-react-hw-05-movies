@@ -11,7 +11,7 @@ const MovieDetails = () => {
   const [film, setFilm] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
-  const backLink = location.state?.from ?? '/';
+  const backLink = location.state.from ?? '/';
   useEffect(() => {
     axios
       .get(
@@ -41,8 +41,12 @@ const MovieDetails = () => {
       </Box>
       <p>Additional information</p>
       <Box dp="flex" gap="16" color="lightgrey">
-        <Link to="cast">Cast</Link>
-        <Link to="reviews">Reviews</Link>
+        <Link to="cast" state={{ from: location.state.from }}>
+          Cast
+        </Link>
+        <Link to="reviews" state={{ from: location.state.from }}>
+          Reviews
+        </Link>
       </Box>
       <Outlet />
     </>
