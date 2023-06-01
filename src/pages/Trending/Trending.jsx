@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 export const Trending = () => {
-  const [movies, setMovies] = useState(null);
+  const [movies, setMovies] = useState();
   const location = useLocation();
   useEffect(() => {
     axios
@@ -24,10 +24,7 @@ export const Trending = () => {
         {movies &&
           movies.map(el => (
             <StyledLi key={el.id}>
-              <NavLink
-                to={`movies/${el.id.toString()}`}
-                state={{ from: location }}
-              >
+              <NavLink to={`movies/${el.id}`} state={{ from: location }}>
                 {el.title}
               </NavLink>
             </StyledLi>
