@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 export const Reviews = () => {
-  const [reviews, setReviews] = useState(null);
+  const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export const Reviews = () => {
 
   return (
     <ul>
-      {reviews &&
+      {reviews.length > 0 &&
         reviews.map(el => (
           <li key={el.id}>
             <b>{el.author_details.name}</b>
