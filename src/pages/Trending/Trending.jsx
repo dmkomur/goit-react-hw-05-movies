@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 export const Trending = () => {
-  const [movies, setMovies] = useState();
+  const [movies, setMovies] = useState(null);
   const location = useLocation();
   useEffect(() => {
     axios
@@ -15,7 +15,6 @@ export const Trending = () => {
       .then(response => {
         setMovies(response.data.results);
       });
-    // fetchTrands();
   }, []);
 
   return (

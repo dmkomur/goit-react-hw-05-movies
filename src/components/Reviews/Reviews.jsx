@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 export const Reviews = () => {
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState(null);
   const { movieId } = useParams();
 
   useEffect(() => {

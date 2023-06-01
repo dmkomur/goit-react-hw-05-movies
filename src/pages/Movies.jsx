@@ -1,7 +1,7 @@
 import { Box } from 'components/Common/Box';
 import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { StyledLi } from 'components/Trending/Trending.styled';
+import { StyledLi } from 'pages/Trending/Trending.styled';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';

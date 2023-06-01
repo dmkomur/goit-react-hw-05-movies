@@ -1,10 +1,8 @@
 import { theme } from './Common/Theme';
 import { ThemeProvider } from 'styled-components';
-import { Trending } from './Trending/Trending';
+import { Trending } from '../pages/Trending/Trending';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Layout } from 'pages/Layout';
-// import { Movies } from 'pages/Movies';
-// import { MovieDetails } from 'pages/MovieDetails';
+import { Layout } from 'components/Layout/Layout';
 import { Cast } from './Cast/Cast';
 import { Reviews } from './Reviews/Reviews';
 import { lazy } from 'react';
